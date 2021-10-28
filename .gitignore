@@ -1,0 +1,7 @@
+# Folders
+.idea/
+venv/
+__pycache__/
+
+# Extensions
+*.dat
