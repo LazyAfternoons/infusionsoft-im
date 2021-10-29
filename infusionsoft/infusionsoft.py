@@ -199,6 +199,15 @@ class Infusionsoft:
         key = 'campaign'
         return self.get_api(key)
 
+    def ecommerce(self):
+        """Getter for the Ecommerce endpoint object.
+
+        Returns:
+             The object representing the Ecommerce endpoint.
+        """
+        key = 'ecommerce'
+        return self.get_api(key)
+
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs
     """
