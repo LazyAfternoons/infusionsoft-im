@@ -21,7 +21,7 @@ class AccountInfo(ApiModel):
             The JSON result of the request.
         """
         r = self.infusionsoft.request('get', self.service_url)
-        return r.text
+        return r.json
 
     def updates_account_profile(self, json):
         """Updates profile/company info for an account. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Account_Info/updateAccountInfoUsingPUT>`.
@@ -34,7 +34,7 @@ class AccountInfo(ApiModel):
             The JSON result of the request.
         """
         r = self.infusionsoft.request('put', self.service_url, json=json)
-        return r.text
+        return r.json
 
 
 

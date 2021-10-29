@@ -24,7 +24,7 @@ class Affiliate(ApiModel):
             The JSON result of the request.
         """
         r = self.infusionsoft.request('get', self.service_url, params=params)
-        return r.text
+        return r.json
 
     def create_affiliate(self, json):
         """Create a single affiliate. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Affiliate/createAffiliateUsingPOST>`.
@@ -37,7 +37,7 @@ class Affiliate(ApiModel):
             The JSON result of the request.
         """
         r = self.infusionsoft.request('post', self.service_url, json=json)
-        return r.text
+        return r.json
 
     def list_affiliate_clawbacks(self, affiliate_id, params):
         """Retrieves a list of all affiliate clawbacks. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Affiliate/listAffiliateClawbacksUsingGET>`.
@@ -53,7 +53,7 @@ class Affiliate(ApiModel):
         """
         url = f'{self.service_url}/{affiliate_id}/clawbacks'
         r = self.infusionsoft.request('get', affiliate_id, params)
-        return r.text
+        return r.json
 
     def list_affiliate_payments(self, affiliate_id, json, params):
         """Retrieves a list of all affiliate payments. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Affiliate/listPaymentsUsingGET>`.
@@ -71,7 +71,7 @@ class Affiliate(ApiModel):
         """
         url = f'{self.service_url}/{affiliate_id}/payments'
         r = self.infusionsoft.request('get', url, affiliate_id, params=params, json=json)
-        return r.text
+        return r.json
 
     def retrieve_affiliate(self, id):
         """Retrieve a single affiliate. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Affiliate/getAffiliateUsingGET>`.
@@ -85,7 +85,7 @@ class Affiliate(ApiModel):
         """
         url = f'{self.service_url}/{id}'
         r = self.infusionsoft.request('get', url)
-        return r.text
+        return r.json
 
     def list_commissions(self, params):
         """Retrieve a list of Commissions based on Affiliate or Date Range. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Affiliate/listCommissionsUsingGET>`.
@@ -99,7 +99,7 @@ class Affiliate(ApiModel):
         """
         url = f'{self.service_url}/commissions'
         r = self.infusionsoft.request('get', url, params=params)
-        return r.text
+        return r.json
 
     def retrive_affiliate_model(self):
         """Get the custom fields for the Affiliate object. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Affiliate/retrieveAffiliateModelUsingGET>`.
@@ -109,7 +109,7 @@ class Affiliate(ApiModel):
         """
         url = f'{self.service_url}/model'
         r = self.infusionsoft.request('get', url)
-        return r.text
+        return r.json
 
     def list_commission_programs(self, params=None):
         """Retrieve a list of Commission Programs. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Affiliate/listProgramsUsingGET>`.
@@ -123,7 +123,7 @@ class Affiliate(ApiModel):
         """
         url = f'{self.service_url}/programs'
         r = self.infusionsoft.request('get', url, params=params)
-        return r.text
+        return r.json
 
     def list_affiliate_redirects(self, params=None):
         """Retrieves a list of all affiliate redirects. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Affiliate/listAffiliateRedirectLinksUsingGET>`.
@@ -137,7 +137,7 @@ class Affiliate(ApiModel):
         """
         url = f'{self.service_url}/redirectlinks'
         r = self.infusionsoft.request('get', url, params=params)
-        return r.text
+        return r.json
 
     def list_affiliate_summaries(self, params=None):
         """Retrieves a list of all affiliate redirects. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Affiliate/listSummariesUsingGET>`.
@@ -151,4 +151,4 @@ class Affiliate(ApiModel):
         """
         url = f'{self.service_url}/summaries'
         r = self.infusionsoft.request('get', url, params=params)
-        return r.text
+        return r.json

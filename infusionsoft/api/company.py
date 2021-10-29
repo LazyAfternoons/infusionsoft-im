@@ -27,7 +27,7 @@ class Company(ApiModel):
             The JSON result of the request.
         """
         r = self.infusionsoft.request('get', self.service_url, params=params)
-        return r.text
+        return r.json
 
     def create_company(self, json):
         """Creates a new company. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/createCompanyUsingPOST>`.
@@ -39,7 +39,7 @@ class Company(ApiModel):
             The JSON result of the request.
         """
         r = self.infusionsoft.request('post', self.service_url, json=json)
-        return r.text
+        return r.json
 
     def retrieve_company(self, company_id, params=None):
         """Retrieves a single company. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/getCompanyUsingGET>`.
@@ -55,7 +55,7 @@ class Company(ApiModel):
         """
         url = f"{self.service_url}/{company_id}"
         r = self.infusionsoft.request('get', url, params)
-        return r.text
+        return r.json
 
     def update_company(self, company_id, json):
         """Updates a company with only the values provided in the request. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/updateCompanyUsingPATCH>`.
@@ -71,7 +71,7 @@ class Company(ApiModel):
         """
         url = f"{self.service_url}/{company_id}"
         r = self.infusionsoft.request('patch', url, json)
-        return r.text
+        return r.json
 
     def retrieve_company_model(self):
         """Get the custom fields and optional properties for the Company object
@@ -81,6 +81,6 @@ class Company(ApiModel):
         """
         url = f"{self.service_url}/model"
         r = self.infusionsoft.request('get', url)
-        return r.text
+        return r.json
 
 
