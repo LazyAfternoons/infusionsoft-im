@@ -89,7 +89,7 @@ class Contact(ApiModel):
            contact_id:
                The ID of the contact.
        Returns:
-           The JSON result of the request containing credit cards.
+            The JSON result of the request.
        """
         url = f"{self.service_url}/{contact_id}/creditCards"
         r = self.infusionsoft.request('get', url)
@@ -121,7 +121,7 @@ class Contact(ApiModel):
                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
 
         Returns:
-            The JSON result of the request containing emails.
+            The JSON result of the request.
         """
         url = f"{self.service_url}/{contact_id}/emails"
         r = self.infusionsoft.request('get', url, params=params)
@@ -169,7 +169,7 @@ class Contact(ApiModel):
                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
 
         Returns:
-            The JSON result of the request containing tags applied to a contact.
+            The JSON result of the request.
         """
         url = f"{self.service_url}/{contact_id}/tags"
         r = self.infusionsoft.request('get', url, json=params)
@@ -217,7 +217,7 @@ class Contact(ApiModel):
                  Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
 
         Returns:
-            The JSON request response containing the request contact properties.
+            The JSON result of the request.
         """
         url = f"{self.service_url}/{contact_id}"
         r = self.infusionsoft.request('delete', url, params=params)
@@ -227,7 +227,7 @@ class Contact(ApiModel):
         """Gets the custom fields and optional properties for the Contact object
 
         Returns:
-            The JSON request response containing the requested custom fields and optional properties of the model.
+            The JSON result of the request.
         """
         url = f"{self.service_url}/model"
         r = self.infusionsoft.request('delete', url)
@@ -246,7 +246,7 @@ class Contact(ApiModel):
         r = self.infusionsoft.request('post', url, json=params)
         return r.text
 
-    """Returns the service url of the REST endpoint.
-    """
     def get_service_url(self):
+        """Returns the service url of the REST endpoint.
+        """
         return self.service_url

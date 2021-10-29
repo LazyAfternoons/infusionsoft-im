@@ -24,7 +24,7 @@ class Company(ApiModel):
             params:
                  Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
         Returns:
-            The JSON result of the request containing companies.
+            The JSON result of the request.
         """
         r = self.infusionsoft.request('get', self.service_url, params=params)
         return r.text
@@ -51,7 +51,7 @@ class Company(ApiModel):
                  Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
 
         Returns:
-            The JSON result of the request containing the company data.
+            The JSON result of the request.
         """
         url = f"{self.service_url}/{company_id}"
         r = self.infusionsoft.request('get', url, params)
@@ -77,7 +77,7 @@ class Company(ApiModel):
         """Get the custom fields and optional properties for the Company object
 
         Returns:
-            The JSON result of the request containing the company model.
+            The JSON result of the request.
         """
         url = f"{self.service_url}/model"
         r = self.infusionsoft.request('get', url)

@@ -21,7 +21,7 @@ class Affiliate(ApiModel):
             params:
                  Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
         Returns:
-            The JSON result of the request containing affiliates.
+            The JSON result of the request.
         """
         r = self.infusionsoft.request('get', self.service_url, params=params)
         return r.text

@@ -18,7 +18,7 @@ class AccountInfo(ApiModel):
         """Retrieves profile/company info for an account. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Account_Info/getAccountProfileUsingGET>`.
 
         Returns:
-            The JSON result of the request containing the profile/company info.
+            The JSON result of the request.
         """
         r = self.infusionsoft.request('get', self.service_url)
         return r.text
