@@ -15,7 +15,7 @@ class Infusionsoft:
     """Infusionsoft object for using their `REST API <https://developer.infusionsoft.com/docs/rest/#!>`.
     """
 
-    def __init__(self, client_id: str, client_secret: str):
+    def __init__(self, client_id, client_secret):
         """Creates a new Infusionsoft object.
 
         Args: client_id: The application client id which can be found `here
@@ -37,7 +37,7 @@ class Infusionsoft:
         requests_log.propagate = True
         logging.disable(logging.DEBUG)
 
-    def set_debug(self, flag: bool) -> None:
+    def set_debug(self, flag: bool):
         """Enable or disable debug for HTTP requests.
 
         Args:
@@ -48,7 +48,7 @@ class Infusionsoft:
         else:
             logging.disable(logging.DEBUG)
 
-    def is_token_serialized(self) -> bool:
+    def is_token_serialized(self):
         """Check whether a token has been serialized previously.
 
         Returns:
@@ -56,7 +56,7 @@ class Infusionsoft:
         """
         return exists('token.dat')
 
-    def deserialize_token(self) -> Token:
+    def deserialize_token(self):
         """Deserialize a previously stored token.
         """
         with open('token.dat', 'rb') as f:
@@ -68,7 +68,7 @@ class Infusionsoft:
         """
         self.token = token
 
-    def get_new_token(self, access_token: str, refresh_token: str, end_of_life: str) -> Token:
+    def get_new_token(self, access_token: str, refresh_token: str, end_of_life: str):
         """Generates a new token with the given parameters.
 
         Args: access_token: The generated access token from the `'Your Accounts'
@@ -84,7 +84,7 @@ class Infusionsoft:
             pickle.dump(token, f)
         return token
 
-    def refresh_token(self) -> None:
+    def refresh_token(self):
         """Refreshes an expired token.
 
         Raises:
@@ -106,7 +106,7 @@ class Infusionsoft:
         else:
             raise InfusionsoftException('An error occurred while refreshing the token.')
 
-    def request(self, method, url, params=None, data=None, json=None, headers=None) -> str:
+    def request(self, method, url, params=None, data=None, json=None, headers=None):
         """Performs a request to the REST endpoint.
 
         Args:
@@ -146,7 +146,7 @@ class Infusionsoft:
                 raise InfusionsoftException("Unable to find the request API service object.")
         return obj
 
-    def contact(self) -> Contact:
+    def contact(self):
         """Getter for the contact endpoint object.
         Returns:
              The object representing the contact endpoint.

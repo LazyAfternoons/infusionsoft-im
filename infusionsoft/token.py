@@ -5,7 +5,7 @@ class Token:
     """Token class for representing an auth token for the infusionsoft class.
     """
 
-    def __init__(self, access_token: str, refresh_token: str, end_of_life: str, extra_info=None):
+    def __init__(self, access_token, refresh_token, end_of_life, extra_info=None):
         """Creates a new Token object.
 
         Args:
@@ -22,7 +22,7 @@ class Token:
         else:
             raise TypeError("Both access token and refresh token must be provided.")
 
-    def is_expired(self) -> bool:
+    def is_expired(self):
         """Checks the expiration date of the token.
 
         Returns:
