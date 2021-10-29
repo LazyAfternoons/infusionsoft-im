@@ -147,6 +147,7 @@ class Infusionsoft:
 
     def contact(self):
         """Getter for the Contact endpoint object.
+
         Returns:
              The object representing the Contact endpoint.
         """
@@ -155,6 +156,7 @@ class Infusionsoft:
 
     def company(self):
         """Getter for the Company endpoint object.
+
         Returns:
              The object representing the Contact endpoint.
         """
@@ -163,6 +165,7 @@ class Infusionsoft:
 
     def account(self):
         """Getter for the Account endpoint object.
+
         Returns:
              The object representing the Aontact endpoint.
         """
@@ -171,10 +174,20 @@ class Infusionsoft:
 
     def affiliate(self):
         """Getter for the Affiliate endpoint object.
+
         Returns:
              The object representing the Affiliate endpoint.
         """
         key = 'affiliate'
+        return self.get_api(key)
+
+    def appointment(self):
+        """Getter for the Appointment endpoint object.
+
+        Returns:
+             The object representing the Appointment endpoint.
+        """
+        key = 'appointment'
         return self.get_api(key)
 
 
