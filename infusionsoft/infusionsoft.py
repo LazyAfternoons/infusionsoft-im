@@ -146,27 +146,35 @@ class Infusionsoft:
         return obj
 
     def contact(self):
-        """Getter for the contact endpoint object.
+        """Getter for the Contact endpoint object.
         Returns:
-             The object representing the contact endpoint.
+             The object representing the Contact endpoint.
         """
         key = 'contact'
         return self.get_api(key)
 
     def company(self):
-        """Getter for the company endpoint object.
+        """Getter for the Company endpoint object.
         Returns:
-             The object representing the contact endpoint.
+             The object representing the Contact endpoint.
         """
         key = 'company'
         return self.get_api(key)
 
     def account(self):
-        """Getter for the company endpoint object.
+        """Getter for the Account endpoint object.
         Returns:
-             The object representing the contact endpoint.
+             The object representing the Aontact endpoint.
         """
         key = 'account'
+        return self.get_api(key)
+
+    def affiliate(self):
+        """Getter for the Affiliate endpoint object.
+        Returns:
+             The object representing the Affiliate endpoint.
+        """
+        key = 'affiliate'
         return self.get_api(key)
 
 

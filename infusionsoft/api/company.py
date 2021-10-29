@@ -22,7 +22,7 @@ class Company(ApiModel):
 
         Args:
             params:
-                Dictionary, bytes, or file-like object parameters for filtering companies. See the API reference for more information.
+                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
         Returns:
             The JSON result of the request containing companies.
         """
