@@ -36,7 +36,7 @@ class Company(ApiModel):
             params:
                 Dictionary, bytes, or file-like object parameters for creating a company. See the API reference for more information.
         Returns:
-            The result of the request.
+            The JSON result of the request.
         """
         r = self.infusionsoft.request('post', self.service_url, json=params)
         return r.text
@@ -67,7 +67,7 @@ class Company(ApiModel):
                 Dictionary, bytes, or file-like object parameters containing fields to be updated. See the API reference for more information.
 
         Returns:
-
+            The JSON result of the request.
         """
         url = f"{self.service_url}/{company_id}"
         r = self.infusionsoft.request('patch', url, params)
