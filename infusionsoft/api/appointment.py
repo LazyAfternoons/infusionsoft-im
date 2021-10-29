@@ -12,7 +12,7 @@ class Appointment(ApiModel):
             infusionsoft: the Infusionsoft object representing the client.
         """
         super(Appointment, self).__init__(infusionsoft)
-        self.service_url = f'{self.service_url}/appointments'
+        self.service_url = f'{self.base_url}/appointments'
 
     def list_appointments(self, params=None):
         """Retrieves all appointments for the authenticated user. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Appointment/listAppointmentsUsingGET>`.

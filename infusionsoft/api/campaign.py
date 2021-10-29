@@ -12,7 +12,7 @@ class Campaign(ApiModel):
             infusionsoft: the Infusionsoft object representing the client.
         """
         super(Campaign, self).__init__(infusionsoft)
-        self.service_url = f'{self.service_url}/campaigns'
+        self.service_url = f'{self.base_url}/campaigns'
 
     def list_campaigns(self, params=None):
         """Retrieves all campaigns for the authenticated user. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Campaign/listCampaignsUsingGET>`.

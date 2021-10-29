@@ -12,7 +12,7 @@ class Company(ApiModel):
             infusionsoft: the Infusionsoft object representing the client.
         """
         super(Company, self).__init__(infusionsoft)
-        self.service_url = f'{self.service_url}/companies'
+        self.service_url = f'{self.base_url}/companies'
 
     def get_service_url(self):
         return self.service_url

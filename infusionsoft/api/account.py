@@ -12,7 +12,7 @@ class AccountInfo(ApiModel):
             infusionsoft: the Infusionsoft object representing the client.
         """
         super(AccountInfo, self).__init__(infusionsoft)
-        self.service_url = f'{self.service_url}/account/profile'
+        self.service_url = f'{self.base_url}/account/profile'
 
     def retrieve_account_profile(self):
         """Retrieves profile/company info for an account. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Account_Info/getAccountProfileUsingGET>`.

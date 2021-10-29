@@ -12,7 +12,7 @@ class Affiliate(ApiModel):
             infusionsoft: the Infusionsoft object representing the client.
         """
         super(Affiliate, self).__init__(infusionsoft)
-        self.service_url = f'{self.service_url}/affiliates'
+        self.service_url = f'{self.base_url}/affiliates'
 
     def list_affiliate(self, params=None):
         """Retrieves a list of all affiliates. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Affiliate/listAffiliatesUsingGET>`.
