@@ -153,6 +153,22 @@ class Infusionsoft:
         key = 'contact'
         return self.get_api(key)
 
+    def company(self):
+        """Getter for the company endpoint object.
+        Returns:
+             The object representing the contact endpoint.
+        """
+        key = 'company'
+        return self.get_api(key)
+
+    def account(self):
+        """Getter for the company endpoint object.
+        Returns:
+             The object representing the contact endpoint.
+        """
+        key = 'account'
+        return self.get_api(key)
+
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs

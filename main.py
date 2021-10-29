@@ -27,7 +27,7 @@ def test():
         print("No serialized token found or input parameters provided")
         sys.exit()
 
-    params = {
+    '''params = {
           "email_addresses": [
             {
               "email": "test2@test.it",
@@ -40,7 +40,11 @@ def test():
           "middle_name": "string",
           "opt_in_reason": "string"
         }
-    print(infusionsoft.contact().create_contact(params))
+    print(infusionsoft.contact().create_contact(params))'''
+    params = {
+        "limit": "2"
+    }
+    print(infusionsoft.company().list_companies(params))
 
 
 # Press the green button in the gutter to run the script.

@@ -26,19 +26,19 @@ class Company(ApiModel):
         Returns:
             The JSON result of the request containing companies.
         """
-        r = self.infusionsoft.request('get', self.service_url, json=params)
+        r = self.infusionsoft.request('get', self.service_url, params=params)
         return r.text
 
-    def create_company(self, params):
+    def create_company(self, json):
         """Creates a new company. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/createCompanyUsingPOST>`.
 
         Args:
-            params:
-                Dictionary, bytes, or file-like object parameters for creating a company. See the API reference for more information.
+            json:
+                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
         Returns:
             The JSON result of the request.
         """
-        r = self.infusionsoft.request('post', self.service_url, json=params)
+        r = self.infusionsoft.request('post', self.service_url, json=json)
         return r.text
 
     def retrieve_company(self, company_id, params=None):
@@ -48,7 +48,7 @@ class Company(ApiModel):
             company_id:
                 The ID of the company.
             params:
-                 Dictionary, bytes, or file-like object parameters containing contact properties to be included in the response. See the API reference for more information.
+                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
 
         Returns:
             The JSON result of the request containing the company data.
@@ -57,20 +57,20 @@ class Company(ApiModel):
         r = self.infusionsoft.request('get', url, params)
         return r.text
 
-    def update_company(self, company_id, params):
+    def update_company(self, company_id, json):
         """Updates a company with only the values provided in the request. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/updateCompanyUsingPATCH>`.
 
         Args:
             company_id:
                 The ID of the company to be updated.
-            params:
-                Dictionary, bytes, or file-like object parameters containing fields to be updated. See the API reference for more information.
+            json:
+                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
 
         Returns:
             The JSON result of the request.
         """
         url = f"{self.service_url}/{company_id}"
-        r = self.infusionsoft.request('patch', url, params)
+        r = self.infusionsoft.request('patch', url, json)
         return r.text
 
     def retrieve_company_model(self):
