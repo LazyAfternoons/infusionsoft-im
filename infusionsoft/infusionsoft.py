@@ -190,6 +190,14 @@ class Infusionsoft:
         key = 'appointment'
         return self.get_api(key)
 
+    def campaign(self):
+        """Getter for the Campaign endpoint object.
+
+        Returns:
+             The object representing the Campaign endpoint.
+        """
+        key = 'campaign'
+        return self.get_api(key)
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs
