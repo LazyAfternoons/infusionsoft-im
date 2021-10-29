@@ -12,7 +12,7 @@ class Contact(ApiModel):
             infusionsoft: the Infusionsoft object representing the client.
         """
         super(Contact, self).__init__(infusionsoft)
-        self.service_url = 'https://api.infusionsoft.com/crm/rest/v1/contacts'
+        self.service_url = f'{self.service_url}/contacts'
 
     def list_contact(self):
         """Lists all the contacts in Infusionsoft. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Contact/listContactsUsingGET!>`.

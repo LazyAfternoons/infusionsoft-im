@@ -12,7 +12,7 @@ class Company(ApiModel):
             infusionsoft: the Infusionsoft object representing the client.
         """
         super(Company, self).__init__(infusionsoft)
-        self.service_url = 'https://api.infusionsoft.com/crm/rest/v1/companies'
+        self.service_url = f'{self.service_url}/companies'
 
     def get_service_url(self):
         return self.service_url
@@ -42,7 +42,7 @@ class Company(ApiModel):
         return r.text
 
     def retrieve_company(self, company_id, params=None):
-        """Retrives a single company. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/getCompanyUsingGET>`.
+        """Retrieves a single company. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/getCompanyUsingGET>`.
 
         Args:
             company_id:
