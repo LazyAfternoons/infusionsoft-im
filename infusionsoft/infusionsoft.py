@@ -7,8 +7,7 @@ import logging
 import http.client as http_client
 import importlib
 
-from infusionsoft.api.contact import Contact
-from token import Token
+from infusionsoft.token import Token
 
 
 class Infusionsoft:
