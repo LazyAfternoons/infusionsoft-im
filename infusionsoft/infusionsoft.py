@@ -268,6 +268,15 @@ class Infusionsoft:
         key = 'locale'
         return self.get_api(key)
 
+    def merchant(self):
+        """Getter for the Email endpoint object.
+
+        Returns:
+             The object representing the Email endpoint.
+        """
+        key = 'merchant'
+        return self.get_api(key)
+
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs.
