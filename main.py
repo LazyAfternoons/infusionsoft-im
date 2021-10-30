@@ -28,7 +28,12 @@ def test():
         sys.exit()
 
     params = {
-
+        "email_addresses": [
+            {
+                "email": "test@test.it",
+                "field": "EMAIL1"
+            }
+        ],
           "given_name": "string",
           "job_title": "string",
           "lead_source_id": 0,

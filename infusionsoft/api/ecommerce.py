@@ -26,8 +26,7 @@ class Ecommerce(ApiModel):
          Returns:
              The JSON result of the request.
          """
-        r = self.infusionsoft.request('get', self.service_url, params=params)
-        return r.json
+        return self.infusionsoft.request('get', self.service_url, params=params)
 
     def create_order(self, json):
         """Create a one time order with order items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createOrderUsingPOST>`.
@@ -39,8 +38,7 @@ class Ecommerce(ApiModel):
          Returns:
              The JSON result of the request.
          """
-        r = self.infusionsoft.request('post', self.service_url, json=json)
-        return r.json
+        return self.infusionsoft.request('post', self.service_url, json=json)
 
     def delete_order(self, order_id):
         """Delete an order that does not have a payment. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/deleteOrderUsingDELETE>`.
@@ -53,8 +51,7 @@ class Ecommerce(ApiModel):
              The JSON result of the request.
         """
         url = f'{self.service_url}/{order_id}'
-        r = self.infusionsoft.request('delete', url)
-        return r.json
+        return self.infusionsoft.request('delete', url)
 
     def retrieve_order(self, order_id):
         """Retrieves a single order. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/getOrderUsingGET>`.
@@ -67,8 +64,7 @@ class Ecommerce(ApiModel):
              The JSON result of the request.
         """
         url = f'{self.service_url}/{order_id}'
-        r = self.infusionsoft.request('get', url)
-        return r.json
+        return self.infusionsoft.request('get', url)
 
     def create_order_item(self, order_id, json):
         """Creates an order item on an existing order. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createOrderItemsOnOrderUsingPOST>`.
@@ -83,8 +79,7 @@ class Ecommerce(ApiModel):
              The JSON result of the request.
         """
         url = f'{self.service_url}/{order_id}/items'
-        r = self.infusionsoft.request('post', url, json=json)
-        return r.json
+        return self.infusionsoft.request('post', url, json=json)
 
     def delete_order_item(self, order_id, order_item_id):
         """Delete an order Item on specified Order. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/deleteOrderOrderItemUsingDELETE>`.
@@ -99,8 +94,7 @@ class Ecommerce(ApiModel):
              The JSON result of the request.
         """
         url = f'{self.service_url}/{order_id}/items/{order_item_id}'
-        r = self.infusionsoft.request('delete', url)
-        return r.json
+        return self.infusionsoft.request('delete', url)
 
     def replace_order_payplan(self, order_id, json):
         """Delete an order Item on specified Order. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/deleteOrderOrderItemUsingDELETE>`.
@@ -115,8 +109,7 @@ class Ecommerce(ApiModel):
              The JSON result of the request.
         """
         url = f'{self.service_url}/{order_id}/paymentPlan'
-        r = self.infusionsoft.request('put', url, json=json)
-        return r.json
+        return self.infusionsoft.request('put', url, json=json)
 
     def retrieve_order_payments(self, order_id):
         """Retrieves a list of payments made against a given order, including historical or external payments of cash or credit card. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listOrderPaymentsUsingGET>`.
@@ -129,8 +122,7 @@ class Ecommerce(ApiModel):
              The JSON result of the request.
         """
         url = f'{self.service_url}/{order_id}/payments'
-        r = self.infusionsoft.request('get', url)
-        return r.json
+        return self.infusionsoft.request('get', url)
 
     def create_payment(self, order_id, json):
         """Creates a payment record that can charge a credit card. Alternatively, adds a record of historical or external payment of cash or credit card. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createPaymentOnOrderUsingPOST>`.
@@ -146,8 +138,7 @@ class Ecommerce(ApiModel):
              The JSON result of the request.
         """
         url = f'{self.service_url}/{order_id}/payments'
-        r = self.infusionsoft.request('post', url, json=json)
-        return r.json
+        return self.infusionsoft.request('post', url, json=json)
 
     def retrieve_order_transactions(self, order_id, params):
         """Retrieves a list of all transactions on a given order using the specified search criteria. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listTransactionsForOrderUsingGET>`.
@@ -162,8 +153,7 @@ class Ecommerce(ApiModel):
              The JSON result of the request.
         """
         url = f'{self.service_url}/{order_id}/transactions'
-        r = self.infusionsoft.request('get', url, params=params)
-        return r.json
+        return self.infusionsoft.request('get', url, params=params)
 
     def retrieve_custom_order_model(self):
         """Get the custom fields for the Order object. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/retrieveOrderModelUsingGET>`.
@@ -172,8 +162,7 @@ class Ecommerce(ApiModel):
              The JSON result of the request.
         """
         url = f'{self.service_url}/model'
-        r = self.infusionsoft.request('get', url)
-        return r.json
+        return self.infusionsoft.request('get', url)
 
     def list_subscriptions(self):
         """Retrieves a list of all subscriptions using the specified search criteria. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listSubscriptionsUsingGET>`.
@@ -181,8 +170,7 @@ class Ecommerce(ApiModel):
          Returns:
              The JSON result of the request.
         """
-        r = self.infusionsoft.request('get', self.subscription_url)
-        return r.json
+        return self.infusionsoft.request('get', self.subscription_url)
 
     def create_subscriptions(self, json):
         """Creates a subscription with the specified product and product subscription id. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createSubscriptionUsingPOST>`.
@@ -194,8 +182,7 @@ class Ecommerce(ApiModel):
          Returns:
              The JSON result of the request.
         """
-        r = self.infusionsoft.request('get', self.subscription_url, json=json)
-        return r.json
+        return self.infusionsoft.request('get', self.subscription_url, json=json)
 
     def retrieve_subscription_model(self):
         """Get the custom fields for the Subscription object. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/retrieveSubscriptionModelUsingGET>`.
@@ -204,8 +191,7 @@ class Ecommerce(ApiModel):
              The JSON result of the request.
         """
         url = f'{self.subscription_url}/model'
-        r = self.infusionsoft.request('get', url)
-        return r.json
+        return self.infusionsoft.request('get', url)
 
     def list_transactions(self, params=None):
         """Retrieves a list transactions for a given contact. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listTransactionsUsingGET>`.
@@ -217,8 +203,7 @@ class Ecommerce(ApiModel):
          Returns:
              The JSON result of the request.
         """
-        r = self.infusionsoft.request('get', self.transactions_url, params)
-        return r.json
+        return self.infusionsoft.request('get', self.transactions_url, params)
 
     def retrieve_transaction(self, transaction_id):
         """Retrieves a single transaction. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/getTransactionUsingGET>`.
@@ -231,5 +216,4 @@ class Ecommerce(ApiModel):
              The JSON result of the request.
         """
         url = f'{self.transactions_url}/{transaction_id}'
-        r = self.infusionsoft.request('get', url)
-        return r.json
+        return self.infusionsoft.request('get', url)

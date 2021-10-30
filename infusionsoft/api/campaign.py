@@ -24,8 +24,7 @@ class Campaign(ApiModel):
         Returns:
             The JSON result of the request.
         """
-        r = self.infusionsoft.request('get', self.service_url, params)
-        return r.json
+        return self.infusionsoft.request('get', self.service_url, params)
 
     def retrieve_campaign(self, campaign_id, params=None):
         """Retrieves a single campaign. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Campaign/getCampaignUsingGET>`.
@@ -38,8 +37,7 @@ class Campaign(ApiModel):
             The JSON result of the request.
         """
         url = f'{self.service_url}/{campaign_id}'
-        r = self.infusionsoft.request('get', url, params=params)
-        return r.json
+        return self.infusionsoft.request('get', url, params=params)
 
     def remove_multiple_campaign_sequence(self, campaign_id, sequence_id, json):
         """Removes a list of contacts from a campaign sequence. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Campaign/removeContactsFromCampaignSequenceUsingDELETE>`.
@@ -56,8 +54,7 @@ class Campaign(ApiModel):
             The JSON result of the request.
         """
         url = f'{self.service_url}/{campaign_id}/sequences/{sequence_id}/contacts'
-        r = self.infusionsoft.request('post', url, json=json)
-        return r.json
+        return self.infusionsoft.request('post', url, json=json)
 
     def add_multiple_campaign_sequence(self, campaign_id, sequence_id, json):
         """Adds a list of contacts to a campaign sequence. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Campaign/addContactsToCampaignSequenceUsingPOST>`.
@@ -74,8 +71,7 @@ class Campaign(ApiModel):
             The JSON result of the request.
         """
         url = f'{self.service_url}/{campaign_id}/sequences/{sequence_id}/contacts'
-        r = self.infusionsoft.request('post', url, json=json)
-        return r.json
+        return self.infusionsoft.request('post', url, json=json)
 
     def remove_campaign_sequence(self, campaign_id, sequence_id, contact_id):
         """Removes a single contact from a campaign sequence. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Campaign/removeContactFromCampaignSequenceUsingDELETE>`.
@@ -92,8 +88,7 @@ class Campaign(ApiModel):
             The JSON result of the request.
         """
         url = f'{self.service_url}/{campaign_id}/sequences/{sequence_id}/contacts/{contact_id}'
-        r = self.infusionsoft.request('delete', url)
-        return r.json
+        return self.infusionsoft.request('delete', url)
 
     def add_campaign_sequence(self, campaign_id, sequence_id, contact_id):
         """Adds a single contact to a campaign sequence. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Campaign/addContactToCampaignSequenceUsingPOST>`.
@@ -110,8 +105,7 @@ class Campaign(ApiModel):
             The JSON result of the request.
         """
         url = f'{self.service_url}/{campaign_id}/sequences/{sequence_id}/contacts/{contact_id}'
-        r = self.infusionsoft.request('post', url)
-        return r.json
+        return self.infusionsoft.request('post', url)
 
     def achieve_api_goal(self, integration, call_name, json):
         """Achieves API goal for campaigns with matching integration, callName for a given contactId. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Campaign/createAchieveApiGoalEventUsingPOST>`.
@@ -128,5 +122,4 @@ class Campaign(ApiModel):
             The JSON result of the request.
         """
         url = f'{self.service_url}/goalgs/{integration}/{call_name}'
-        r = self.infusionsoft.request('post', url, json=json)
-        return r.json
+        return self.infusionsoft.request('post', url, json=json)

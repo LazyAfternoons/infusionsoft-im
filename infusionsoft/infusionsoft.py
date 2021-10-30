@@ -1,7 +1,9 @@
+import json
 import pickle
 from os.path import exists
 
 import requests
+from requests import RequestException
 import base64
 import logging
 import http.client as http_client
@@ -29,7 +31,7 @@ class Infusionsoft:
 
         # Logging initializer
         http_client.HTTPConnection.debuglevel = 0
-        # logging.baseConfig()
+        logging.basicConfig()
         logging.getLogger().setLevel(logging.DEBUG)
         requests_log = logging.getLogger("requests.packages.urllib3")
         requests_log.setLevel(logging.DEBUG)
@@ -44,8 +46,10 @@ class Infusionsoft:
         """
         if flag:
             logging.disable(logging.NOTSET)
+            http_client.HTTPConnection.debuglevel = 1
         else:
             logging.disable(logging.DEBUG)
+            http_client.HTTPConnection.debuglevel = 0
 
     def is_token_serialized(self):
         """Check whether a token has been serialized previously.
@@ -117,13 +121,26 @@ class Infusionsoft:
             headers: Headers of the request. Defaults to None.
 
         Returns:
-            The content of the answer.
+            The JSON of the answer or an empty JSON in case of error.
+
+        Raises:
+            RequestException
         """
         payload = {'access_token': self.token.access_token}
         if params:
             payload.update(params)
         method_to_call = getattr(requests, method)
-        return method_to_call(url, params=payload, data=data, headers=headers, json=json)
+        r = method_to_call(url, params=payload, data=data, headers=headers, json=json)
+        status_code = r.status_code
+        text = r.text
+        try:
+            json_response = r.json()
+            if status_code != 200 and status_code != 201:
+                raise ApiException(status_code, text, json_response)
+            else:
+                return json_response
+        except RequestException:  # Will change to JSONDecodeError in future versions of request
+            raise ApiException(status_code, text, None)
 
     # missing return type
     def get_api(self, service):
@@ -208,7 +225,37 @@ class Infusionsoft:
         key = 'ecommerce'
         return self.get_api(key)
 
+
 class InfusionsoftException(Exception):
-    """Exception thrown when an error related to Infusionsoft occurs
+    """Exception thrown when an error related to Infusionsoft occurs.
     """
-    pass
+
+    def __init__(self, message):
+        """Creates a new InfusionsoftException.
+
+        Args:
+            message:
+                Message of the error.
+        """
+        super().__init__(self.message)
+
+
+class ApiException(Exception):
+    """Exception thrown when an error occurs when performing an API request.
+    """
+
+    def __init__(self, status_code, message, json):
+        """Creates a new ApiException.
+
+        Args:
+            status_code:
+                Status code of the error.
+            message:
+                Message of the error.
+            json:
+                JSON response, if present.
+        """
+        self.status_code = status_code
+        self.message = message
+        self.json = json
+        super().__init__(self.message)
