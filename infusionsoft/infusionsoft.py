@@ -259,6 +259,15 @@ class Infusionsoft:
         key = 'file'
         return self.get_api(key)
 
+    def locale(self):
+        """Getter for the Email endpoint object.
+
+                Returns:
+                     The object representing the Email endpoint.
+                """
+        key = 'locale'
+        return self.get_api(key)
+
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs.
