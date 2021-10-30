@@ -1,4 +1,4 @@
-from datetime import time
+import time
 
 
 class Token:
@@ -28,7 +28,7 @@ class Token:
         Returns:
             True if the token is expired, false otherwise.
         """
-        return self.end_of_life < str(time())
+        return int(self.end_of_life) < int(time.time())
 
 
 class TokenExpiredException(Exception):
