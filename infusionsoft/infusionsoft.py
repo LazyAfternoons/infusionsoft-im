@@ -286,6 +286,14 @@ class Infusionsoft:
         key = 'note'
         return self.get_api(key)
 
+    def opportunity(self):
+        """Getter for the opportunity endpoint object.
+
+        Returns:
+             The object representing the opportunity endpoint.
+        """
+        key = 'opportunity'
+        return self.get_api(key)
 
 
 class InfusionsoftException(Exception):
