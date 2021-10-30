@@ -251,7 +251,7 @@ class Infusionsoft:
         return self.get_api(key)
 
     def file(self):
-        """Getter for the Email endpoint object.
+        """Getter for the File endpoint object.
 
         Returns:
              The object representing the Email endpoint.
@@ -260,16 +260,16 @@ class Infusionsoft:
         return self.get_api(key)
 
     def locale(self):
-        """Getter for the Email endpoint object.
+        """Getter for the Locale endpoint object.
 
-                Returns:
-                     The object representing the Email endpoint.
-                """
+        Returns:
+             The object representing the Email endpoint.
+        """
         key = 'locale'
         return self.get_api(key)
 
     def merchant(self):
-        """Getter for the Email endpoint object.
+        """Getter for the Merchant endpoint object.
 
         Returns:
              The object representing the Email endpoint.
