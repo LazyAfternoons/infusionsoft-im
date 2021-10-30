@@ -237,10 +237,19 @@ class Infusionsoft:
     def email_address(self):
         """Getter for the Email endpoint object.
 
-                Returns:
-                     The object representing the Email endpoint.
-                """
+        Returns:
+             The object representing the Email endpoint.
+        """
         key = 'emailaddress'
+        return self.get_api(key)
+
+    def file(self):
+        """Getter for the Email endpoint object.
+
+        Returns:
+             The object representing the Email endpoint.
+        """
+        key = 'file'
         return self.get_api(key)
 
 
