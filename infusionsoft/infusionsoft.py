@@ -277,6 +277,16 @@ class Infusionsoft:
         key = 'merchant'
         return self.get_api(key)
 
+    def note(self):
+        """Getter for the Note endpoint object.
+
+        Returns:
+             The object representing the Note endpoint.
+        """
+        key = 'note'
+        return self.get_api(key)
+
+
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs.
