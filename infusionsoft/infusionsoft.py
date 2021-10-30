@@ -225,6 +225,24 @@ class Infusionsoft:
         key = 'ecommerce'
         return self.get_api(key)
 
+    def email(self):
+        """Getter for the Email endpoint object.
+
+        Returns:
+             The object representing the Email endpoint.
+        """
+        key = 'email'
+        return self.get_api(key)
+
+    def email_address(self):
+        """Getter for the Email endpoint object.
+
+                Returns:
+                     The object representing the Email endpoint.
+                """
+        key = 'emailaddress'
+        return self.get_api(key)
+
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs.
