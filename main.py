@@ -13,6 +13,7 @@ def test():
         print("Serialized token found")
         token = infusionsoft.deserialize_token()
         infusionsoft.set_token(token)
+        print(token.access_token)
         if token.is_expired():
             print("Refreshing Token")
             infusionsoft.refresh_token()
@@ -42,7 +43,7 @@ def test():
           "opt_in_reason": "string"
         }
     #print(infusionsoft.contact().create_contact(params))
-    print(infusionsoft.email().list_emails())
+    #print(infusionsoft.email().list_emails())
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':

@@ -83,9 +83,15 @@ class Infusionsoft:
             The generated token.
         """
         token = Token(access_token, refresh_token, end_of_life)
+        self.serialize_token(token)
+
+    """Serialize token.
+        Args: 
+            token: the token to be serialized.
+    """
+    def serialize_token(self, token):
         with open('token.dat', 'wb') as f:
             pickle.dump(token, f)
-        return token
 
     def refresh_token(self):
         """Refreshes an expired token.
@@ -106,6 +112,7 @@ class Infusionsoft:
             self.token.access_token = json_res.get('access_token')
             self.token.refresh_token = json_res.get('refresh_token')
             self.token.end_of_life = json_res.get('end_of_life')
+            self.serialize_token(self.token)
         else:
             raise InfusionsoftException('An error occurred while refreshing the token.')
 
@@ -264,7 +271,7 @@ class InfusionsoftException(Exception):
             message:
                 Message of the error.
         """
-        super().__init__(self.message)
+        super().__init__(message)
 
 
 class ApiException(Exception):
