@@ -331,6 +331,15 @@ class Infusionsoft:
         key = 'setting'
         return self.get_api(key)
 
+    def tags(self):
+        """Getter for the Tags endpoint object.
+
+        Returns:
+             The object representing the Tags endpoint.
+        """
+        key = 'tags'
+        return self.get_api(key)
+
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs.
