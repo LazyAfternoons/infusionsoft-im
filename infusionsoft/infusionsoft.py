@@ -322,6 +322,15 @@ class Infusionsoft:
         key = 'resthook'
         return self.get_api(key)
 
+    def setting(self):
+        """Getter for the Setting endpoint object.
+
+        Returns:
+             The object representing the Setting endpoint.
+        """
+        key = 'setting'
+        return self.get_api(key)
+
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs.
