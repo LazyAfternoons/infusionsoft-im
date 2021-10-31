@@ -349,6 +349,15 @@ class Infusionsoft:
         key = 'tasks'
         return self.get_api(key)
 
+    def users(self):
+        """Getter for the UserInfo endpoint object.
+
+        Returns:
+             The object representing the Tasks endpoint.
+        """
+        key = 'userinfo'
+        return self.get_api(key)
+
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs.
