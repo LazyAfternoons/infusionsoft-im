@@ -313,6 +313,15 @@ class Infusionsoft:
         key = 'product'
         return self.get_api(key)
 
+    def resthook(self):
+        """Getter for the REST Hooks endpoint object.
+
+        Returns:
+             The object representing the REST Hooks endpoint.
+        """
+        key = 'resthook'
+        return self.get_api(key)
+
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs.

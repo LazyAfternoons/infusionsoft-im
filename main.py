@@ -4,6 +4,10 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 import sys
+from datetime import datetime
+import http.client
+import json
+
 from infusionsoft.infusionsoft import Infusionsoft
 
 
@@ -13,10 +17,9 @@ def test():
         print("Serialized token found")
         token = infusionsoft.deserialize_token()
         infusionsoft.set_token(token)
-        print(token.access_token)
-        if token.is_expired():
+        '''if token.is_expired():
             print("Refreshing Token")
-            infusionsoft.refresh_token()
+            infusionsoft.refresh_token()'''
     elif len(sys.argv) == 4:
         print("Creating a new token")
         access_token = sys.argv[1]
@@ -28,8 +31,8 @@ def test():
         print("No serialized token found or input parameters provided")
         sys.exit()
 
-    infusionsoft.set_debug(True)
-    params = {
+    # infusionsoft.set_debug(True)
+    '''params = {
         "email_addresses": [
             {
                 "email": "test@test.it",
@@ -41,9 +44,7 @@ def test():
           "lead_source_id": 0,
           "middle_name": "string",
           "opt_in_reason": "string"
-        }
-    #print(infusionsoft.contact().create_contact(params))
-    #print(infusionsoft.email().list_emails())
+        }'''
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
