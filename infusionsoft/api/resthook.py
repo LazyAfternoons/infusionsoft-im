@@ -18,7 +18,7 @@ class RestHook(ApiModel):
         """List hook event types. `API reference <https://developer.infusionsoft.com/docs/rest/#!/REST_Hooks/list_hook_event_types>`.
 
          Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/hooks/event_keys'
         return self.infusionsoft.request('get', url)
@@ -31,7 +31,7 @@ class RestHook(ApiModel):
                 A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         return self.infusionsoft.request('post', self.service_url)
 
@@ -43,7 +43,7 @@ class RestHook(ApiModel):
                 The key of the hook subscription.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{key}/verify'
         return self.infusionsoft.request('post', url)
@@ -58,7 +58,7 @@ class RestHook(ApiModel):
                 X hook secret which allows you to confirm a subscription.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{key}/delayedVerify'
         headers = {'X-Hook-Secret': x_hook_secret}
@@ -68,7 +68,7 @@ class RestHook(ApiModel):
         """Lists your hook subscriptions. `API reference <https://developer.infusionsoft.com/docs/rest/#!/REST_Hooks/list_stored_hook_subscriptions>`
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         return self.infusionsoft.request('get', self.service_url)
 
@@ -79,7 +79,7 @@ class RestHook(ApiModel):
             key:
                 The key of the hook subscription.
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{key}'
         return self.infusionsoft.request('get', url)
@@ -95,7 +95,7 @@ class RestHook(ApiModel):
                 A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{key}'
         return self.infusionsoft.request('put', url, json=json)
@@ -108,7 +108,7 @@ class RestHook(ApiModel):
                 The key of the hook subscription.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{key}'
         return self.infusionsoft.request('delete', url)

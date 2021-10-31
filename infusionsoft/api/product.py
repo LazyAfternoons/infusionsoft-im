@@ -22,7 +22,7 @@ class Product(ApiModel):
                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         return self.infusionsoft.request('get', self.service_url, params=params)
 
@@ -34,7 +34,7 @@ class Product(ApiModel):
                 A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         return self.infusionsoft.request('post', self.service_url, json=json)
 
@@ -46,7 +46,7 @@ class Product(ApiModel):
                 The ID of the product to be deleted.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{product_id}'
         return self.infusionsoft.request('delete', url)
@@ -59,7 +59,7 @@ class Product(ApiModel):
                 The ID of the product to be deleted.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{product_id}'
         return self.infusionsoft.request('get', url)
@@ -74,7 +74,7 @@ class Product(ApiModel):
                 A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{product_id}'
         return self.infusionsoft.request('patch', url)
@@ -87,7 +87,7 @@ class Product(ApiModel):
                 The ID of the product to be deleted.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{product_id}/image'
         return self.infusionsoft.request('delete', url)
@@ -102,7 +102,7 @@ class Product(ApiModel):
                 A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{product_id}/image'
         return self.infusionsoft.request('post', url, json=json)
@@ -117,7 +117,7 @@ class Product(ApiModel):
                 A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{product_id}/subscriptions'
         return self.infusionsoft.request('post', url, json=json)
@@ -132,7 +132,7 @@ class Product(ApiModel):
                 The ID of the subscription.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{product_id}/subscriptions/{subscription_id}'
         return self.infusionsoft.request('delete', url)
@@ -147,7 +147,7 @@ class Product(ApiModel):
                 The ID of the subscription.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{product_id}/subscriptions/{subscription_id}'
         return self.infusionsoft.request('get', url)
@@ -157,7 +157,7 @@ class Product(ApiModel):
         WARNING: DEPRECATED.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/sync'
         return self.infusionsoft.request('get', url, params=params)

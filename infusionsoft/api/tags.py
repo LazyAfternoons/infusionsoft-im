@@ -31,7 +31,7 @@ class Tags(ApiModel):
         """Create a new tag. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/createTagUsingPOST>`
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         return self.infusionsoft.request('post', self.service_url, json=json)
 
@@ -43,7 +43,7 @@ class Tags(ApiModel):
                 The ID of the tag.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{id}'
         return self.infusionsoft.request('get', url)
@@ -58,7 +58,7 @@ class Tags(ApiModel):
                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{tag_id}'
         return self.infusionsoft.request('get', url, params)
@@ -73,7 +73,7 @@ class Tags(ApiModel):
                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{tag_id}'
         return self.infusionsoft.request('delete', url, params)
@@ -88,7 +88,7 @@ class Tags(ApiModel):
                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{tag_id}/contacts'
         return self.infusionsoft.request('get', url, params)
@@ -103,7 +103,7 @@ class Tags(ApiModel):
                 A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{tag_id}/contacts'
         return self.infusionsoft.request('get', url, json)
@@ -118,7 +118,7 @@ class Tags(ApiModel):
                 The ID of the contact.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/{tag_id}/contacts/{contact_id}'
         return self.infusionsoft.request('get', url)
@@ -131,7 +131,7 @@ class Tags(ApiModel):
                 A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         url = f'{self.service_url}/categories'
         return self.infusionsoft.request('post', url, json=json)

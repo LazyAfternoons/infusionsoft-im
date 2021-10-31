@@ -22,7 +22,7 @@ class Contact(ApiModel):
                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
 
         Returns:
-            The JSON response containing contacts.
+            The JSON response of the request.
         """
         return self.infusionsoft.request('get', self.service_url, json=params)
 
