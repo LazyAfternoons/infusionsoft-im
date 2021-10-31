@@ -340,6 +340,15 @@ class Infusionsoft:
         key = 'tags'
         return self.get_api(key)
 
+    def tasks(self):
+        """Getter for the Tasks endpoint object.
+
+        Returns:
+             The object representing the Tasks endpoint.
+        """
+        key = 'tasks'
+        return self.get_api(key)
+
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs.
