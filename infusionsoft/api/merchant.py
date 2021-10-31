@@ -2,6 +2,9 @@ from infusionsoft.api.apimodel import ApiModel
 
 
 class Merchant(ApiModel):
+    """Merchant object for calling Infusionsoft API related to the remote Merchant Info object.
+    """
+
     def __init__(self, infusionsoft):
         """Creates a new Merchant object.
 

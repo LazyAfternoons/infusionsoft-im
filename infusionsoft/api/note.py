@@ -2,6 +2,9 @@ from infusionsoft.api.apimodel import ApiModel
 
 
 class Note(ApiModel):
+    """Note object for calling Infusionsoft API related to the remote Note Info object.
+    """
+
     def __init__(self, infusionsoft):
         """Creates a new Note object.
 

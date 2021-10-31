@@ -2,7 +2,7 @@ from infusionsoft.api.apimodel import ApiModel
 
 
 class Campaign(ApiModel):
-    """Campaign object for calling Infusionsoft API related to the remote Campaign object.
+    """Campaign object for calling Infusionsoft API related to the remote Campaign Info object.
     """
 
     def __init__(self, infusionsoft):

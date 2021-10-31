@@ -6,7 +6,7 @@ class Company(ApiModel):
     """
 
     def __init__(self, infusionsoft):
-        """Creates a new Contact object.
+        """Creates a new Company object.
 
         Args:
             infusionsoft: the Infusionsoft object representing the client.

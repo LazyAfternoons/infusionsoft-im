@@ -2,6 +2,9 @@ from infusionsoft.api.apimodel import ApiModel
 
 
 class Locale(ApiModel):
+    """Locale object for calling Infusionsoft API related to the remote Locale Info object.
+    """
+
     def __init__(self, infusionsoft):
         """Creates a new Locale object.
 

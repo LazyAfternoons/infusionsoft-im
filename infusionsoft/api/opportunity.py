@@ -2,6 +2,9 @@ from infusionsoft.api.apimodel import ApiModel
 
 
 class Opportunity(ApiModel):
+    """Opportunity object for calling Infusionsoft API related to the remote Opportunity Info object.
+    """
+
     def __init__(self, infusionsoft):
         """Creates a new Merchant object.
 

@@ -2,6 +2,9 @@ from infusionsoft.api.apimodel import ApiModel
 
 
 class File(ApiModel):
+    """File object for calling Infusionsoft API related to the remote File Info object.
+    """
+
     def __init__(self, infusionsoft):
         """Creates a new EmailAddress object. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Email/listEmailsUsingGET>`
 

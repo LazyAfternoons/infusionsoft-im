@@ -2,8 +2,11 @@ from infusionsoft.api.apimodel import ApiModel
 
 
 class Email(ApiModel):
+    """Email object for calling Infusionsoft API related to the remote Email Info object.
+    """
+
     def __init__(self, infusionsoft):
-        """Creates a new Email object. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Email/listEmailsUsingGET>`
+        """Creates a new Email object.`
 
         Args:
             infusionsoft: the Infusionsoft object representing the client.

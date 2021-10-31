@@ -2,7 +2,7 @@ from infusionsoft.api.apimodel import ApiModel
 
 
 class Appointment(ApiModel):
-    """Appointment object for calling Infusionsoft API related to the remote Appointment object.
+    """Appointment object for calling Infusionsoft API related to the remote Appointment Info object.
     """
 
     def __init__(self, infusionsoft):

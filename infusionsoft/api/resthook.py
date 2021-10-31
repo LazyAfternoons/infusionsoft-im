@@ -2,8 +2,11 @@ from infusionsoft.api.apimodel import ApiModel
 
 
 class RestHook(ApiModel):
+    """RestHook object for calling Infusionsoft API related to the remote RestHook Info object.
+    """
+
     def __init__(self, infusionsoft):
-        """Retrieves a list of all products.
+        """Creates a new RestHook object.
 
         Args:
             infusionsoft: the Infusionsoft object representing the client.

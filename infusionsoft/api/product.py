@@ -2,8 +2,11 @@ from infusionsoft.api.apimodel import ApiModel
 
 
 class Product(ApiModel):
+    """Product object for calling Infusionsoft API related to the remote Product Info object.
+    """
+
     def __init__(self, infusionsoft):
-        """Retrieves a list of all products.
+        """Creates a new Product object.
 
         Args:
             infusionsoft: the Infusionsoft object representing the client.
