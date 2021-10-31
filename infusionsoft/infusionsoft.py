@@ -1,3 +1,4 @@
+import http
 import json
 import pickle
 from os.path import exists
@@ -149,6 +150,14 @@ class Infusionsoft:
         except RequestException:  # Will change to JSONDecodeError in future versions of request
             raise ApiException(status_code, text, None)
 
+    def request_raw(self, method, url, body=None, headers=None):
+        connection = http.client.HTTPSConnection(url)
+        if body is not None:
+            json_dict = json.dumps(body)
+        connection.request(method, '/markdown', json_dict, headers)
+        response = connection.getresponse()
+        return response.read().decode()
+
     # missing return type
     def get_api(self, service):
         """Getter for an object representing the chosen API interface.
@@ -287,12 +296,21 @@ class Infusionsoft:
         return self.get_api(key)
 
     def opportunity(self):
-        """Getter for the opportunity endpoint object.
+        """Getter for the Opportunity endpoint object.
 
         Returns:
-             The object representing the opportunity endpoint.
+             The object representing the Opportunity endpoint.
         """
         key = 'opportunity'
+        return self.get_api(key)
+
+    def product(self):
+        """Getter for the Product endpoint object.
+
+        Returns:
+             The object representing the Product endpoint.
+        """
+        key = 'product'
         return self.get_api(key)
 
 
