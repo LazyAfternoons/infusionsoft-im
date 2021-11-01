@@ -1,6 +1,7 @@
 import http
 import json
 import pickle
+import time
 from os.path import exists
 
 import requests
@@ -108,14 +109,14 @@ class Infusionsoft:
         headers = {'Authorization': f'Basic {base64_string}', 'Content-type': 'application/x-www-form-urlencoded'}
         data = {'grant_type': 'refresh_token', 'refresh_token': self.token.refresh_token}
         r = requests.post(url, data=data, headers=headers)
+        json_res = r.json()
         if r.status_code == 200:
-            json_res = r.json()
             self.token.access_token = json_res.get('access_token')
             self.token.refresh_token = json_res.get('refresh_token')
-            self.token.end_of_life = json_res.get('end_of_life')
+            self.token.end_of_life = str(int(time.time()) + int(json_res.get('expires_in')))
             self.serialize_token(self.token)
         else:
-            raise InfusionsoftException('An error occurred while refreshing the token.')
+            raise InfusionsoftException(f'An error occurred while refreshing the token: {json_res}')
 
     def request(self, method, url, params=None, data=None, json=None, headers=None):
         """Performs a request to the REST endpoint.

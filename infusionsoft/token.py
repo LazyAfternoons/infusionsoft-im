@@ -30,6 +30,9 @@ class Token:
         """
         return int(self.end_of_life) < int(time.time())
 
+    def __str__(self):
+        return f'Access Token: {self.access_token}\nRefresh Token: {self.refresh_token}\nEnd Of Life: {self.end_of_life}'
+
 
 class TokenExpiredException(Exception):
     """Exception thrown when an error related to the token occurs
