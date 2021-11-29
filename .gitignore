@@ -9,3 +9,6 @@ __pycache__/
 #PyPI
 dist/
 MANIFEST
+
+#Files
+test.py
