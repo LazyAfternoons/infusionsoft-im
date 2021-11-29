@@ -18,35 +18,41 @@ class Company(ApiModel):
         return self.service_url
 
     def list_companies(self, params=None):
-        """Retrieves a list of all companies. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/listCompaniesUsingGET>`.
+        """Retrieves a list of all companies.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/listCompaniesUsingGET>`.
 
         Args:
             params:
-                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
+                 Dictionary, list of tuples or bytes to send in the query string for the Request.
+                 See the API reference for more information.
         Returns:
             The JSON result of the request.
         """
         return self.infusionsoft.request('get', self.service_url, params=params)
 
     def create_company(self, json):
-        """Creates a new company. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/createCompanyUsingPOST>`.
+        """Creates a new company.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/createCompanyUsingPOST>`.
 
         Args:
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
         Returns:
             The JSON result of the request.
         """
         return self.infusionsoft.request('post', self.service_url, json=json)
 
     def retrieve_company(self, company_id, params=None):
-        """Retrieves a single company. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/getCompanyUsingGET>`.
+        """Retrieves a single company.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/getCompanyUsingGET>`.
 
         Args:
             company_id:
                 The ID of the company.
             params:
-                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
+                 Dictionary, list of tuples or bytes to send in the query string for the Request.
+                 See the API reference for more information.
 
         Returns:
             The JSON result of the request.
@@ -55,13 +61,15 @@ class Company(ApiModel):
         return self.infusionsoft.request('get', url, params)
 
     def update_company(self, company_id, json):
-        """Updates a company with only the values provided in the request. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/updateCompanyUsingPATCH>`.
+        """Updates a company with only the values provided in the request.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Company/updateCompanyUsingPATCH>`.
 
         Args:
             company_id:
                 The ID of the company to be updated.
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON result of the request.
@@ -77,5 +85,4 @@ class Company(ApiModel):
         """
         url = f"{self.service_url}/model"
         return self.infusionsoft.request('get', url)
-
 

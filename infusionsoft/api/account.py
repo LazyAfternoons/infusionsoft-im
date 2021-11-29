@@ -15,7 +15,8 @@ class AccountInfo(ApiModel):
         self.service_url = f'{self.base_url}/account/profile'
 
     def retrieve_account_profile(self):
-        """Retrieves profile/company info for an account. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Account_Info/getAccountProfileUsingGET>`.
+        """Retrieves profile/company info for an account.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Account_Info/getAccountProfileUsingGET>`.
 
         Returns:
             The JSON result of the request.
@@ -23,16 +24,15 @@ class AccountInfo(ApiModel):
         return self.infusionsoft.request('get', self.service_url)
 
     def updates_account_profile(self, json):
-        """Updates profile/company info for an account. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Account_Info/updateAccountInfoUsingPUT>`.
+        """Updates profile/company info for an account.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/Account_Info/updateAccountInfoUsingPUT>`.
 
         Args:
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON result of the request.
         """
         return self.infusionsoft.request('put', self.service_url, json=json)
-
-
-

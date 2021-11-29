@@ -15,13 +15,15 @@ class EmailAddress(ApiModel):
         self.service_url = f'{self.base_url}/Addresses'
 
     def replace_email_address(self, email, json):
-        """Replaces all of the values of a given email address. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Email_Address/replaceEmailAddressUsingPUT>`
+        """Replaces all of the values of a given email address.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Email_Address/replaceEmailAddressUsingPUT>`
 
         Args:
             email:
                 Email to be replaced.
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON result of the request.

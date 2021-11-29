@@ -16,11 +16,15 @@ class Opportunity(ApiModel):
 
     def list_opportunities(self, params):
         """Retrieves a list of all opportunities.
-        Please note: the sample response erroneously shows properties, such as stage reasons, that are unavailable through the list endpoint.
-        Such properties are only available through the retrieve operation. Future versions of the Opportunity resource will correct the oversight. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Merchant/getMerchantAccountsUsingGET>`.
+        Please note: the sample response erroneously shows properties, such as stage reasons,
+        that are unavailable through the list endpoint.
+        Such properties are only available through the retrieve operation.
+        Future versions of the Opportunity resource will correct the oversight.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Merchant/getMerchantAccountsUsingGET>`.
 
         params:
-            Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
+            Dictionary, list of tuples or bytes to send in the query string for the Request.
+            See the API reference for more information.
 
         Returns:
             The JSON result of the request.
@@ -28,11 +32,14 @@ class Opportunity(ApiModel):
         return self.infusionsoft.request('get', self.service_url, params)
 
     def create_opportunity(self, json):
-        """Creates a new opportunity as the authenticated user. NB: Opportunity must contain values for opportunity_title, contact, and stage. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/createOpportunityUsingPOST>`.
+        """Creates a new opportunity as the authenticated user.
+        NB: Opportunity must contain values for opportunity_title, contact, and stage.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/createOpportunityUsingPOST>`.
 
         Args:
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON result of the request.
@@ -40,11 +47,13 @@ class Opportunity(ApiModel):
         return self.infusionsoft.request('post', self.service_url, json)
 
     def replace_opportunity(self, json):
-        """Replaces all values of a given opportunity. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/updateOpportunityUsingPUT>`.
+        """Replaces all values of a given opportunity.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/updateOpportunityUsingPUT>`.
 
         Args:
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON result of the request.
@@ -52,13 +61,15 @@ class Opportunity(ApiModel):
         return self.infusionsoft.request('put', self.service_url, json=json)
 
     def retrieve_opportunity(self, opportunity_id, params=None):
-        """Retrieves a single opportunity. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/getOpportunityUsingGET>`.
+        """Retrieves a single opportunity.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/getOpportunityUsingGET>`.
 
         Args:
             opportunity_id:
                 The ID of the opportunity.
             params:
-                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
+                 Dictionary, list of tuples or bytes to send in the query string for the Request.
+                 See the API reference for more information.
 
         Returns:
             The JSON result of the request.
@@ -67,13 +78,15 @@ class Opportunity(ApiModel):
         return self.infusionsoft.request('patch', url, params)
 
     def update_opportunity(self, opportunity_id, json):
-        """Updates an opportunity with only the values provided in the request. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/updatePropertiesOnOpportunityUsingPATCH>`.
+        """Updates an opportunity with only the values provided in the request.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/updatePropertiesOnOpportunityUsingPATCH>`.
 
         Args:
             opportunity_id:
                 The ID of the opportunity.
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON result of the request.
@@ -82,7 +95,8 @@ class Opportunity(ApiModel):
         return self.infusionsoft.request('patch', url, json)
 
     def retrieve_opportunity_model(self):
-        """Get the custom fields for the Opportunity object. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/retrieveOpportunityModelUsingGET>`.
+        """Get the custom fields for the Opportunity object.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/retrieveOpportunityModelUsingGET>`.
 
         Returns:
             The JSON result of the request.
@@ -91,13 +105,11 @@ class Opportunity(ApiModel):
         return self.infusionsoft.request('get', url)
 
     def list_opportunity_stage_pipeline(self):
-        """Retrieves a list of all opportunity stages with pipeline details. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/listOpportunityStagePipelinesUsingGET>`.
+        """Retrieves a list of all opportunity stages with pipeline details. `
+        API reference <https://developer.infusionsoft.com/docs/rest/#!/Opportunity/listOpportunityStagePipelinesUsingGET>`.
         
         Returns:
             The JSON result of the request.
         """
         url = f'{self.base_url}/opportunity/stage_pipeline'
         return self.infusionsoft.request('get', url)
-
-
-

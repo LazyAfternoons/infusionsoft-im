@@ -15,7 +15,8 @@ class UserInfo(ApiModel):
         self.service_url = f'{self.base_url}/oath/connect/userinfo'
 
     def retrieve_user_info(self):
-        """Retrieves a list of all tasks using the specified search criteria. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Task/listTasksUsingGET>`.
+        """Retrieves a list of all tasks using the specified search criteria. `API reference
+        <https://developer.infusionsoft.com/docs/rest/#!/Task/listTasksUsingGET>`.
 
         Returns:
             The JSON response of the request.

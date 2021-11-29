@@ -15,7 +15,8 @@ class Merchant(ApiModel):
         self.service_url = f'{self.base_url}/merchants'
 
     def list_merchant(self):
-        """Retrieves a list of all merchant accounts. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Merchant/getMerchantAccountsUsingGET>`.
+        """Retrieves a list of all merchant accounts.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Merchant/getMerchantAccountsUsingGET>`.
 
         Returns:
             The JSON result of the request.

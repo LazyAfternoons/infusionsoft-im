@@ -15,17 +15,18 @@ class Tags(ApiModel):
         self.service_url = f'{self.base_url}/tags'
 
     def list_tags(self, params=None):
-        """Retrieve a list of tags defined in the application. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/listTagsUsingGET>`.
+        """Retrieve a list of tags defined in the application.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/listTagsUsingGET>`.
 
         Args:
             params:
-                Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
+                Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference
+                for more information.
 
         Returns:
             The JSON response of the request.
         """
         return self.infusionsoft.request('get', self.service_url, params=params)
-
 
     def create_tag(self, json):
         """Create a new tag. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/createTagUsingPOST>`
@@ -35,27 +36,29 @@ class Tags(ApiModel):
         """
         return self.infusionsoft.request('post', self.service_url, json=json)
 
-    def retrieve_tag(self, id):
+    def retrieve_tag(self, tag_id):
         """Retrieves a single tag. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/getTagUsingGET>`
 
         Args:
-            id:
+            tag_id:
                 The ID of the tag.
 
         Returns:
             The JSON response of the request.
         """
-        url = f'{self.service_url}/{id}'
+        url = f'{self.service_url}/{tag_id}'
         return self.infusionsoft.request('get', url)
 
     def list_tagged_companies(self, tag_id, params=None):
-        """Retrieves a list of companies that have the given tag applied. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/listCompaniesForTagIdUsingGET>`
+        """Retrieves a list of companies that have the given tag applied.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/listCompaniesForTagIdUsingGET>`
 
         Args:
             tag_id:
                 The ID of the tag.
             params:
-                Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
+                Dictionary, list of tuples or bytes to send in the query string for the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON response of the request.
@@ -63,14 +66,16 @@ class Tags(ApiModel):
         url = f'{self.service_url}/{tag_id}'
         return self.infusionsoft.request('get', url, params)
 
-    def remove_tag_contanct(self, tag_id, params):
-        """Remove a tag from a list of contacts. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/removeTagFromContactIdsUsingDELETE>`
+    def remove_tag_contacts(self, tag_id, params):
+        """Remove a tag from a list of contacts.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/removeTagFromContactIdsUsingDELETE>`
 
         Args:
             tag_id:
                 The ID of the tag.
             params:
-                Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
+                Dictionary, list of tuples or bytes to send in the query string for the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON response of the request.
@@ -79,13 +84,15 @@ class Tags(ApiModel):
         return self.infusionsoft.request('delete', url, params)
 
     def list_tagged_contacts(self, tag_id, params):
-        """Retrieves a list of contacts that have the given tag applied. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/listContactsForTagIdUsingGET>`
+        """Retrieves a list of contacts that have the given tag applied.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/listContactsForTagIdUsingGET>`
 
         Args:
             tag_id:
                 The ID of the tag.
             params:
-                Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
+                Dictionary, list of tuples or bytes to send in the query string for the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON response of the request.
@@ -94,13 +101,15 @@ class Tags(ApiModel):
         return self.infusionsoft.request('get', url, params)
 
     def apply_tag_contact(self, tag_id, json):
-        """Apply a tag to a list of contacts. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/applyTagToContactIdsUsingPOST>`
+        """Apply a tag to a list of contacts.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/applyTagToContactIdsUsingPOST>`
 
         Args:
             tag_id:
                 The ID of the tag.
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON response of the request.
@@ -109,7 +118,8 @@ class Tags(ApiModel):
         return self.infusionsoft.request('get', url, json)
 
     def remove_tag_contact(self, tag_id, contact_id):
-        """Remove a tag from a Contact. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/removeTagFromContactIdUsingDELETE>`
+        """Remove a tag from a Contact.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/removeTagFromContactIdUsingDELETE>`
 
         Args:
             tag_id:
@@ -124,17 +134,16 @@ class Tags(ApiModel):
         return self.infusionsoft.request('get', url)
 
     def create_tag_category(self, json):
-        """Create a new tag category. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/createTagCategoryUsingPOST>`
+        """Create a new tag category.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Tags/createTagCategoryUsingPOST>`
 
         Args:
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON response of the request.
         """
         url = f'{self.service_url}/categories'
         return self.infusionsoft.request('post', url, json=json)
-
-
-

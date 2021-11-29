@@ -27,7 +27,8 @@ class Note(ApiModel):
 
         Args:
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON result of the request.
@@ -47,7 +48,8 @@ class Note(ApiModel):
         return self.infusionsoft.request('delete', url)
 
     def retrieve_note(self, note_id):
-        """Retrieves a single note. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Note/getNoteUsingGET>`.
+        """Retrieves a single note.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Note/getNoteUsingGET>`.
 
         Args:
             note_id: The ID of the note to be deleted.
@@ -59,13 +61,15 @@ class Note(ApiModel):
         return self.infusionsoft.request('get', url)
 
     def update_note(self, note_id, json):
-        """Retrieves a single note. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Note/updatePropertiesOnNoteUsingPATCH>`.
+        """Retrieves a single note.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Note/updatePropertiesOnNoteUsingPATCH>`.
 
         Args:
             note_id:
                 The ID of the note to be deleted.
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON result of the request.
@@ -74,13 +78,15 @@ class Note(ApiModel):
         return self.infusionsoft.request('patch', url, json=json)
 
     def replace_note(self, note_id, json):
-        """Replaces all values of a given note. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Note/updateNoteUsingPUT>`.
+        """Replaces all values of a given note.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Note/updateNoteUsingPUT>`.
 
         Args:
             note_id:
                 The ID of the note to be deleted.
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON result of the request.
@@ -89,7 +95,8 @@ class Note(ApiModel):
         return self.infusionsoft.request('put', url, json=json)
 
     def retrieve_note_model(self):
-        """Replaces all values of a given note. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Note/retrieveNoteModelUsingGET>`.
+        """Replaces all values of a given note.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Note/retrieveNoteModelUsingGET>`.
 
         Returns:
             The JSON result of the request.
@@ -98,20 +105,16 @@ class Note(ApiModel):
         return self.infusionsoft.request('get', url)
 
     def create_custom_field(self, json):
-        """Adds a custom field of the specified type and options to the Note object. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Note/createNoteCustomFieldUsingPOST>`.
+        """Adds a custom field of the specified type and options to the Note object.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Note/createNoteCustomFieldUsingPOST>`.
 
         Args:
-            note_id:
-                The ID of the note to be deleted.
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
         Returns:
             The JSON result of the request.
         """
         url = f'{self.service_url}/model/customFields'
         return self.infusionsoft.request('post', url, json=json)
-
-
-
-

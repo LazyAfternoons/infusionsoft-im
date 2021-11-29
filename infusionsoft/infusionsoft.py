@@ -10,7 +10,6 @@ import base64
 import logging
 import http.client as http_client
 import importlib
-
 from infusionsoft.token import Token
 
 
@@ -118,7 +117,7 @@ class Infusionsoft:
         else:
             raise InfusionsoftException(f'An error occurred while refreshing the token: {json_res}')
 
-    def request(self, method, url, params=None, data=None, json=None, headers=None):
+    def request(self, method, url, params=None, data=None, json_res=None, headers=None):
         """Performs a request to the REST endpoint.
 
         Args:
@@ -126,7 +125,7 @@ class Infusionsoft:
             url: URL of the REST endpoint.
             params: Parameters of the request. Defaults to None.
             data: Data of the request. Defaults to None.
-            json: JSON of the request. Defaults to None.
+            json_res: JSON of the request. Defaults to None.
             headers: Headers of the request. Defaults to None.
 
         Returns:
@@ -139,7 +138,7 @@ class Infusionsoft:
         if params:
             payload.update(params)
         method_to_call = getattr(requests, method)
-        r = method_to_call(url, params=payload, data=data, headers=headers, json=json)
+        r = method_to_call(url, params=payload, data=data, headers=headers, json=json_res)
         status_code = r.status_code
         text = r.text
         try:
@@ -155,6 +154,8 @@ class Infusionsoft:
         connection = http.client.HTTPSConnection(url)
         if body is not None:
             json_dict = json.dumps(body)
+        else:
+            json_dict = None
         connection.request(method, '/markdown', json_dict, headers)
         response = connection.getresponse()
         return response.read().decode()
@@ -171,7 +172,7 @@ class Infusionsoft:
             obj = self.cached_objects.get(service)
         else:
             try:
-                module = importlib.import_module(f"infusionsoft.api.{service}")
+                module = importlib.import_module(f"infusionsoft-im.api.{service}")
                 class_ = getattr(module, service.capitalize())
                 obj = class_(self)
                 self.cached_objects[service] = obj
@@ -201,7 +202,7 @@ class Infusionsoft:
         """Getter for the Account endpoint object.
 
         Returns:
-             The object representing the Aontact endpoint.
+             The object representing the account endpoint.
         """
         key = 'account'
         return self.get_api(key)
@@ -359,14 +360,6 @@ class Infusionsoft:
         key = 'userinfo'
         return self.get_api(key)
 
-    def users(self):
-        """Getter for the Users endpoint object.
-
-        Returns:
-             The object representing the Users endpoint.
-        """
-        key = 'users'
-        return self.get_api(key)
 
 class InfusionsoftException(Exception):
     """Exception thrown when an error related to Infusionsoft occurs.
@@ -386,7 +379,7 @@ class ApiException(Exception):
     """Exception thrown when an error occurs when performing an API request.
     """
 
-    def __init__(self, status_code, message, json):
+    def __init__(self, status_code, message, json_res):
         """Creates a new ApiException.
 
         Args:
@@ -394,10 +387,10 @@ class ApiException(Exception):
                 Status code of the error.
             message:
                 Message of the error.
-            json:
+            json_res:
                 JSON response, if present.
         """
         self.status_code = status_code
         self.message = message
-        self.json = json
+        self.json = json_res
         super().__init__(self.message)

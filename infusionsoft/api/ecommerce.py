@@ -17,11 +17,13 @@ class Ecommerce(ApiModel):
         self.transactions_url = f'{self.base_url}/transactions'
 
     def list_orders(self, params=None):
-        """Retrieves a list of all orders using the specified search criteria. Each order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listOrdersUsingGET>`.
+        """Retrieves a list of all orders using the specified search criteria. Each order may or may not have items.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listOrdersUsingGET>`.
 
          Args:
              params:
-                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
+                 Dictionary, list of tuples or bytes to send in the query string for the Request.
+                 See the API reference for more information.
 
          Returns:
              The JSON result of the request.
@@ -29,11 +31,13 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('get', self.service_url, params=params)
 
     def create_order(self, json):
-        """Create a one time order with order items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createOrderUsingPOST>`.
+        """Create a one time order with order items.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createOrderUsingPOST>`.
 
          Args:
              json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
          Returns:
              The JSON result of the request.
@@ -41,7 +45,8 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('post', self.service_url, json=json)
 
     def delete_order(self, order_id):
-        """Delete an order that does not have a payment. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/deleteOrderUsingDELETE>`.
+        """Delete an order that does not have a payment.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/deleteOrderUsingDELETE>`.
 
          Args:
              order_id:
@@ -54,7 +59,8 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('delete', url)
 
     def retrieve_order(self, order_id):
-        """Retrieves a single order. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/getOrderUsingGET>`.
+        """Retrieves a single order. The order may or may not have items.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/getOrderUsingGET>`.
 
          Args:
              order_id:
@@ -67,13 +73,15 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('get', url)
 
     def create_order_item(self, order_id, json):
-        """Creates an order item on an existing order. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createOrderItemsOnOrderUsingPOST>`.
+        """Creates an order item on an existing order. The order may or may not have items. `
+        API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createOrderItemsOnOrderUsingPOST>`.
 
         Args:
             order_id:
                 The ID of the order.
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
          Returns:
              The JSON result of the request.
@@ -82,7 +90,8 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('post', url, json=json)
 
     def delete_order_item(self, order_id, order_item_id):
-        """Delete an order Item on specified Order. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/deleteOrderOrderItemUsingDELETE>`.
+        """Delete an order Item on specified Order. The order may or may not have items.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/deleteOrderOrderItemUsingDELETE>`.
 
         Args:
             order_id:
@@ -97,13 +106,15 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('delete', url)
 
     def replace_order_payplan(self, order_id, json):
-        """Delete an order Item on specified Order. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/deleteOrderOrderItemUsingDELETE>`.
+        """Delete an order Item on specified Order. The order may or may not have items.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/deleteOrderOrderItemUsingDELETE>`.
 
         Args:
             order_id:
                 The ID of the order.
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
          Returns:
              The JSON result of the request.
@@ -112,7 +123,10 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('put', url, json=json)
 
     def retrieve_order_payments(self, order_id):
-        """Retrieves a list of payments made against a given order, including historical or external payments of cash or credit card. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listOrderPaymentsUsingGET>`.
+        """Retrieves a list of payments made against a given order,
+        including historical or external payments of cash or credit card.
+        The order may or may not have items.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listOrderPaymentsUsingGET>`.
 
         Args:
             order_id:
@@ -125,13 +139,16 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('get', url)
 
     def create_payment(self, order_id, json):
-        """Creates a payment record that can charge a credit card. Alternatively, adds a record of historical or external payment of cash or credit card. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createPaymentOnOrderUsingPOST>`.
+        """Creates a payment record that can charge a credit card. Alternatively,
+        adds a record of historical or external payment of cash or credit card. The order may or may not have items.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createPaymentOnOrderUsingPOST>`.
 
         Args:
             order_id:
                 The ID of the order.
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
 
          Returns:
@@ -141,13 +158,16 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('post', url, json=json)
 
     def retrieve_order_transactions(self, order_id, params):
-        """Retrieves a list of all transactions on a given order using the specified search criteria. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listTransactionsForOrderUsingGET>`.
+        """Retrieves a list of all transactions on a given order using the specified search criteria.
+        The order may or may not have items.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listTransactionsForOrderUsingGET>`.
 
         Args:
             order_id:
                 The ID of the order.
             params:
-                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
+                 Dictionary, list of tuples or bytes to send in the query string for the Request.
+                 See the API reference for more information.
 
          Returns:
              The JSON result of the request.
@@ -156,7 +176,8 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('get', url, params=params)
 
     def retrieve_custom_order_model(self):
-        """Get the custom fields for the Order object. The order may or may not have items. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/retrieveOrderModelUsingGET>`.
+        """Get the custom fields for the Order object. The order may or may not have items.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/retrieveOrderModelUsingGET>`.
 
          Returns:
              The JSON result of the request.
@@ -165,7 +186,8 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('get', url)
 
     def list_subscriptions(self):
-        """Retrieves a list of all subscriptions using the specified search criteria. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listSubscriptionsUsingGET>`.
+        """Retrieves a list of all subscriptions using the specified search criteria.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listSubscriptionsUsingGET>`.
 
          Returns:
              The JSON result of the request.
@@ -173,11 +195,13 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('get', self.subscription_url)
 
     def create_subscriptions(self, json):
-        """Creates a subscription with the specified product and product subscription id. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createSubscriptionUsingPOST>`.
+        """Creates a subscription with the specified product and product subscription id.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/createSubscriptionUsingPOST>`.
 
         Args:
             json:
-                A JSON serializable Python object to send in the body of the Request. See the API reference for more information.
+                A JSON serializable Python object to send in the body of the Request.
+                See the API reference for more information.
 
          Returns:
              The JSON result of the request.
@@ -185,7 +209,8 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('get', self.subscription_url, json=json)
 
     def retrieve_subscription_model(self):
-        """Get the custom fields for the Subscription object. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/retrieveSubscriptionModelUsingGET>`.
+        """Get the custom fields for the Subscription object.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/retrieveSubscriptionModelUsingGET>`.
 
          Returns:
              The JSON result of the request.
@@ -194,11 +219,13 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('get', url)
 
     def list_transactions(self, params=None):
-        """Retrieves a list transactions for a given contact. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listTransactionsUsingGET>`.
+        """Retrieves a list transactions for a given contact.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/listTransactionsUsingGET>`.
 
         Args:
             params:
-                 Dictionary, list of tuples or bytes to send in the query string for the Request. See the API reference for more information.
+                 Dictionary, list of tuples or bytes to send in the query string for the Request.
+                 See the API reference for more information.
 
          Returns:
              The JSON result of the request.
@@ -206,7 +233,8 @@ class Ecommerce(ApiModel):
         return self.infusionsoft.request('get', self.transactions_url, params)
 
     def retrieve_transaction(self, transaction_id):
-        """Retrieves a single transaction. `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/getTransactionUsingGET>`.
+        """Retrieves a single transaction.
+        `API Reference <https://developer.infusionsoft.com/docs/rest/#!/E-Commerce/getTransactionUsingGET>`.
 
         Args:
             transaction_id:

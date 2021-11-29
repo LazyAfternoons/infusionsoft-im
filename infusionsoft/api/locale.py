@@ -15,7 +15,8 @@ class Locale(ApiModel):
         self.service_url = f'{self.base_url}/locales/countries'
 
     def list_countries(self):
-        """Retrieves a list of all countries with their locale code. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Locale/listCountriesUsingGET>`.
+        """Retrieves a list of all countries with their locale code.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Locale/listCountriesUsingGET>`.
 
         Returns:
             The JSON result of the request.
@@ -23,7 +24,8 @@ class Locale(ApiModel):
         return self.infusionsoft.request('get', self.service_url)
 
     def list_country_provinces(self, country_code):
-        """Retrieves a list of all the provinces of the given country. `API reference <https://developer.infusionsoft.com/docs/rest/#!/Locale/listCountriesUsingGET_1>`.
+        """Retrieves a list of all the provinces of the given country.
+        `API reference <https://developer.infusionsoft.com/docs/rest/#!/Locale/listCountriesUsingGET_1>`.
 
         Args:
             country_code: The code of the country.
@@ -32,4 +34,4 @@ class Locale(ApiModel):
             The JSON result of the request.
         """
         url = f'{self.service_url}/{country_code}/provinces'
-        return self.infusionsoft.request('get', self.service_url)
+        return self.infusionsoft.request('get', url, self.service_url)
