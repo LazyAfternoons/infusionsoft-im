@@ -8,7 +8,7 @@ setup(
   author = 'LazyAfternoons',
   author_email = 'lazydev@outlook.it',
   url = 'https://github.com/LazyAfternoons/infusionsoft-im',
-  download_url = '',
+  download_url = 'https://github.com/LazyAfternoons/infusionsoft-im/archive/refs/tags/v0.1.tar.gz',
   keywords = ['INFUSIONSOFT', 'REST', 'API'],
   install_requires=[
           'validators',

@@ -5,3 +5,7 @@ __pycache__/
 
 # Extensions
 *.dat
+
+#PyPI
+dist/
+MANIFEST
